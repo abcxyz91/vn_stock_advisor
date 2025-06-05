@@ -1,6 +1,6 @@
 [project]
 name = "vn_stock_advisor"
-version = "0.3.0"
+version = "0.4.0"
 description = "vn_stock_advisor using Multiple AI Agent - powered by Google Gemini and CrewAI"
 authors = [{ name = "Duong Anh Minh", email = "duonganhminhapple@gmail.com" }]
 requires-python = ">=3.10,<3.13"

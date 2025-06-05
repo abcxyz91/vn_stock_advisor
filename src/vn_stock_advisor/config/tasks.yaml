@@ -61,23 +61,31 @@ technical_analysis:
 
 investment_decision:
   description: >
-    Tổng hợp kết quả từ các phân tích (news_collecting, fundamental_analysis, technical_analysis)
-    để đưa ra khuyến nghị đầu tư cho mã cổ phiếu {symbol}.
+    Dựa trên kết quả tổng hợp từ các phân tích thành phần (news_collecting, fundamental_analysis, technical_analysis), 
+    đánh giá mã cổ phiếu {symbol} bằng hệ thống điểm số lượng hóa và đưa ra khuyến nghị đầu tư cụ thể.
 
     Quy trình thực hiện:
-    1. Tóm tắt ngắn gọn kết quả phân tích vĩ mô, cơ bản, và kỹ thuật.
-    2. Đánh giá xem thông tin đang hỗ trợ xu hướng tăng hay giảm.
-    3. Đưa ra khuyến nghị rõ ràng: MUA, BÁN, hay GIỮ.
-    4. Nếu chưa nên hành động, đề xuất điều kiện cụ thể cần theo dõi (ví dụ: đợi giá vượt kháng cự...).
+    1. Tóm tắt ngắn gọn kết quả phân tích từng phần: vĩ mô, cơ bản, kỹ thuật.
+    2. Chấm điểm từng yếu tố (thang điểm 0–10), kèm lý do.
+    3. Tính điểm tổng hợp (trung bình gia quyền hoặc theo logic được mô tả).
+    4. Đưa ra khuyến nghị rõ ràng: **MUA**, **GIỮ**, hoặc **BÁN**, dựa trên ngưỡng điểm như sau:
+       - **MUA**: nếu điểm trung bình >= 7.5
+       - **GIỮ**: nếu điểm trung bình từ 4.0 đến 7.4
+       - **BÁN**: nếu điểm trung bình < 4.0
+    5. Nếu chưa đạt ngưỡng **MUA** hoặc **BÁN**: đề xuất mức giá mục tiêu dựa trên phân tích kỹ thuật.
 
-    Ghi chú: Câu trả lời KHÔNG ĐƯỢC thiếu khuyến nghị rõ ràng, và phải dựa vào cả 3 yếu tố: vĩ mô – cơ bản – kỹ thuật.
+    Lưu ý:
+    - **KHÔNG** được bỏ qua khuyến nghị hành động.
+    - Kết luận **phải** được xây dựng trên nền tảng điểm số và phân tích từ cả 3 yếu tố.
+    - Ưu tiên các khuyến nghị có thể kiểm chứng và tái sử dụng trong báo cáo phân tích đầu tư chuyên nghiệp.
+
   expected_output: >
-    Một đoạn văn bằng tiếng Việt (~150–200 từ) có cấu trúc:
-    - Mã cổ phiếu, tên công ty và ngành nghề
-    - Nhận định vĩ mô (3–4 câu)
-    - Đánh giá phân tích cơ bản (3–4 câu)
-    - Đánh giá phân tích kỹ thuật (3–4 câu)
-    - Kết luận: Mua / Bán / Giữ (in đậm), kèm giải thích rõ ràng.
-    - Nếu khuyến nghị là GIỮ: đề xuất điều kiện hoặc thời điểm phù hợp hơn để xem xét lại
+    Một đoạn văn bằng tiếng Việt (~200–300 từ), có cấu trúc chuẩn như sau:
+    - Tên công ty, mã cổ phiếu, ngành nghề
+    - **Phân tích vĩ mô**: Tóm tắt + điểm (0–10) + lý do
+    - **Phân tích cơ bản**: Tóm tắt + điểm (0–10) + lý do
+    - **Phân tích kỹ thuật**: Tóm tắt + điểm (0–10) + lý do
+    - **Kết luận**: tính điểm trung bình (ví dụ: 7.8/10) và đưa ra khuyến nghị MUA / GIỮ / BÁN, kèm theo giải thích ngắn gọn, hợp lý
+    - **Nếu GIỮ**: đề xuất 2 mức giá mục tiêu để MUA và BÁN dựa trên phân tích kỹ thuật.
 
   agent: investment_strategist
